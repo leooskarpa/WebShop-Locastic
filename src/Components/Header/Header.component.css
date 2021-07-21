@@ -1,0 +1,30 @@
+.header-container {
+    position: sticky;
+    overflow: hidden;
+    top: 0%;
+    height: 10vh;
+    min-height: 60px;
+    max-height: 100px;
+    background-color: #FFCE25;
+    padding: 5px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.cart-container {
+    display: flex;
+    align-items: center;
+}
+
+.cart-container:hover {
+    cursor: pointer;
+}
+
+.cart-container>span {
+    display: none;
+}
