@@ -9,16 +9,18 @@ const WorkshopsList = () => {
     const workshops = filter === "All" ? allworkshops : allworkshops.filter(w => w.category === filter.toLowerCase())
 
     return (
-        <div className="workshopslist-container">
+        <div className="workshopslist-page-container">
             <div className="workshopslist-title-container">
                 <span className="workshopslist-title">Workshops</span> <br />
-                <span className="workshoplist-title-desc">Displayed:</span> <span className="workshoplist-title-num">{workshops.length}</span>
+                <span className="workshopslist-title-desc">Displayed:</span> <span className="workshopslist-title-num">{workshops.length}</span>
             </div>
-            {
-                workshops.map(workshop =>
-                    <WorkshopCard key={workshop.id} workshop={workshop} />
-                )
-            }
+            <div className="workshopslist-container">
+                {
+                    workshops.map(workshop =>
+                        <WorkshopCard key={workshop.id} workshop={workshop} />
+                    )
+                }
+            </div>
         </div>
     );
 }

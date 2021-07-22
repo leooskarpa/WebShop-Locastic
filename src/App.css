@@ -8,7 +8,9 @@
     src: url('./Fonts/Livvic/Livvic-Bold.ttf');
 }
 
-* {
+*,
+::after,
+::before {
     margin: 0%;
     padding: 0%;
     font-family: 'LivvicRegular';
@@ -68,7 +70,7 @@
 
 /* Home css */
 .home-container {
-    padding: 20px 10vw;
+    padding: 30px 20px;
 }
 
 
@@ -76,6 +78,7 @@
 /* Dropdown css */
 .dropdown-container {
     margin-bottom: 15px;
+    margin-left: 10px;
 }
 
 .dropdown-btn {
@@ -137,11 +140,25 @@
 
 
 /* Workshopslist css */
-.workshoplist-title-container {
-    background-color: black;
+.workshopslist-title-container {
+    margin-bottom: 20px;
+    margin-left: 20px;
 }
 
 .workshopslist-title {
     font-family: 'LivvicBold';
     font-size: 32px;
 }
+
+.workshopslist-title-desc {
+    font-family: 'LivvicBold';
+    font-size: 14px;
+    color: #7F7F7F;
+}
+
+.workshopslist-title-num {
+    font-family: 'LivvicBold';
+    font-size: 14px;
+}
+
+.workshopslist-container {}
