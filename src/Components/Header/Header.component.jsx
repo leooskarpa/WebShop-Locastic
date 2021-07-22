@@ -1,6 +1,5 @@
 import logo_pic from '../../Images/logo.svg'
 import cart_pic from '../../Images/cart.svg'
-import './Header.component.css'
 
 
 const Header = () => {

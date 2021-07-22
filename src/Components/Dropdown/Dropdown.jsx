@@ -1,5 +1,4 @@
 import { useRef } from 'react'
-import './Dropdown.css'
 import DropdownIcon from '../../Images/filter_dropdown.svg'
 import { useDetectClickOutside } from '../Extras/useDetectClickOutside'
 import { useDispatch, useSelector } from 'react-redux'

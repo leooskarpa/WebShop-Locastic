@@ -1,7 +1,5 @@
 import { useSelector } from "react-redux";
-
 import WorkshopCard from "../WorkshopCard/WorkshopCard.component";
-import './WorkshopsList.component.css'
 
 
 const WorkshopsList = () => {
@@ -12,7 +10,10 @@ const WorkshopsList = () => {
 
     return (
         <div className="workshopslist-container">
-            <span className="workshopslist-title">Workshops</span>
+            <div className="workshopslist-title-container">
+                <span className="workshopslist-title">Workshops</span> <br />
+                <span className="workshoplist-title-desc">Displayed:</span> <span className="workshoplist-title-num">{workshops.length}</span>
+            </div>
             {
                 workshops.map(workshop =>
                     <WorkshopCard key={workshop.id} workshop={workshop} />

@@ -14,3 +14,134 @@
     font-family: 'LivvicRegular';
     box-sizing: border-box;
 }
+
+
+
+/* Header css */
+.header-container {
+    position: sticky;
+    overflow: hidden;
+    top: 0%;
+    height: 10vh;
+    min-height: 60px;
+    max-height: 100px;
+    background-color: #FFCE25;
+    padding: 5px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.cart-container {
+    display: flex;
+    align-items: center;
+}
+
+.cart-container:hover {
+    cursor: pointer;
+}
+
+.cart-container>span {
+    display: none;
+}
+
+
+
+/* Footer css */
+.footer-container {
+    background-color: rgba(127, 127, 127, 0.1);
+    color: #7F7F7F;
+
+    height: 5vh;
+    font-size: 15px;
+
+    display: flex;
+    align-items: center;
+    padding-left: 6vw;
+}
+
+
+
+/* Home css */
+.home-container {
+    padding: 20px 10vw;
+}
+
+
+
+/* Dropdown css */
+.dropdown-container {
+    margin-bottom: 15px;
+}
+
+.dropdown-btn {
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none;
+    vertical-align: middle;
+    width: fit-content;
+}
+
+.dropdown-btn:hover {
+    cursor: pointer;
+}
+
+.dropdown-title {
+    font-family: "LivvicBold";
+    font-size: 20px;
+    color: #0097CC;
+    margin-left: 10px;
+}
+
+.menu {
+    background: #ffffff;
+    padding: 5px 15px;
+    margin-top: 15px;
+
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.1);
+
+    position: absolute;
+    z-index: 2;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    border-bottom: 2px solid rgba(0, 151, 204, 0.3);
+    cursor: pointer;
+    font-size: 20px;
+    margin: 5px 0px;
+}
+
+
+
+/* Workshopslist css */
+.workshoplist-title-container {
+    background-color: black;
+}
+
+.workshopslist-title {
+    font-family: 'LivvicBold';
+    font-size: 32px;
+}
