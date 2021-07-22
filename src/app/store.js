@@ -31,13 +31,6 @@ export const loadWorkshops = (workshops) => {
     }
 }
 
-export const setFilter = (filter) => {
-    return {
-        type: 'setFilter',
-        payload: filter
-    }
-}
-
 
 // Reducers
 ////////////////////
@@ -60,8 +53,6 @@ const workshopsReducer = (workshops = [], action) => {
     switch (action) {
         case 'loadWorkshops':
             return action.payload
-        case 'setFilter':
-            return [workshops.filter(workshop => workshop.category === action.payload)]
         default:
             return workshops
     }
