@@ -2,7 +2,7 @@ import './App.css';
 import Header from './Components/Header/Header.component';
 import Footer from './Components/Footer/Footer.component';
 import Home from './Components/Home/Home.component';
-import WorkshopPage from './Components/WorkShopPage/WorkshopPage.component';
+import WorkshopDetailPage from './Components/WorkshopDetailPage/WorkshopDetailPage.component';
 
 import axios from 'axios'
 import { useEffect } from 'react'
@@ -17,10 +17,11 @@ const App = () => {
 
   useEffect(() => {
     axios.get('http://localhost:3000/workshops')
-      .then(res => dispatch(loadWorkshops(res)))
+      .then(res => dispatch(loadWorkshops(res.data)))
       .catch(err => console.log(err))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [dispatch])
+
+
 
   return (
     <div className="App">
@@ -31,7 +32,7 @@ const App = () => {
             <Home />
           </Route>
           <Route exact path='/workshop/:id'>
-            <WorkshopPage />
+            <WorkshopDetailPage />
           </Route>
         </Switch>
         <Footer />

@@ -1,18 +1,21 @@
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 import './Dropdown.css'
 import DropdownIcon from '../../Images/filter_dropdown.svg'
 import { useDetectClickOutside } from '../Extras/useDetectClickOutside'
+import { useDispatch, useSelector } from 'react-redux'
+import { setFilterType } from '../../app/store'
 
 
 const Dropdown = () => {
     const dropdownRef = useRef(null);
     const [active, setActive] = useDetectClickOutside(dropdownRef, false);
-    const [filter, setFilter] = useState("All")
+    const filter = useSelector(state => state.filter)
     const onClick = () => setActive(!active);
+    const dispatch = useDispatch()
 
     const onClickDropdownMenu = (filter) => {
-        setFilter(filter);
         setActive(false);
+        dispatch(setFilterType(filter));
     }
 
     return (

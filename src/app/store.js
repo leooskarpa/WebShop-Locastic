@@ -31,12 +31,18 @@ export const loadWorkshops = (workshops) => {
     }
 }
 
+export const setFilterType = (filter) => {
+    return {
+        type: filter
+    }
+}
+
 
 // Reducers
 ////////////////////
 
 const ordersReducer = (orders = [], action) => {
-    switch (action) {
+    switch (action.type) {
         case 'addOrder':
             return [...orders, action.payload]
         case 'removeOrder':
@@ -50,11 +56,27 @@ const ordersReducer = (orders = [], action) => {
 
 
 const workshopsReducer = (workshops = [], action) => {
-    switch (action) {
+    switch (action.type) {
         case 'loadWorkshops':
             return action.payload
         default:
             return workshops
+    }
+}
+
+
+const filterReducer = (filter = "All", action) => {
+    switch (action.type) {
+        case "Backend":
+            return "Backend"
+        case "Frontend":
+            return "Frontend"
+        case "Marketing":
+            return "Marketing"
+        case "Design":
+            return "Design"
+        default:
+            return "All"
     }
 }
 
@@ -64,5 +86,6 @@ const workshopsReducer = (workshops = [], action) => {
 
 export const store = createStore(combineReducers({
     orders: ordersReducer,
-    workshops: workshopsReducer
+    workshops: workshopsReducer,
+    filter: filterReducer
 }))
