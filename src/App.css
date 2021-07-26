@@ -97,6 +97,10 @@ body {
 
 
 /* Dropdown css */
+.dropdown-or-list-filter-menu-list {
+    display: none;
+}
+
 .dropdown-container {
     margin-bottom: 15px;
     margin-left: 10px;
@@ -202,12 +206,12 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: 1;
+    cursor: pointer;
 }
 
 .workshopcard-category-icon {
     z-index: 2;
     position: absolute;
-
 }
 
 .workshopcard-desc-container {
@@ -250,6 +254,7 @@ body {
     font-family: 'LivvicBold';
     color: var(--my-blue);
     font-size: 1.1rem;
+    cursor: pointer;
 }
 
 .workshopcard-bottom {
@@ -273,4 +278,53 @@ body {
     border-radius: 10px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    .dropdown-or-list-filter-menu-dropdown {
+        display: none;
+    }
+
+    .dropdown-or-list-filter-menu-list {
+        display: block;
+    }
+
+
+    /* FilterList css */
+    .filter-list-container {
+        margin-top: 40px;
+        margin-left: 40px;
+    }
+
+    .filter-list-title {
+        font-size: 14px;
+        font-family: 'LivvicBold', monospace;
+        color: #7F7F7F;
+        margin-bottom: 30px;
+    }
+
+    .filter-list-item {
+        font-size: 20px;
+        font-family: 'LivvicBold', monospace;
+        margin-bottom: 10px;
+        display: flex;
+    }
+
+    .active-filter {
+        color: var(--my-blue);
+        font-size: 20px;
+        font-family: 'LivvicBold', monospace;
+        margin-bottom: 10px;
+        cursor: default
+    }
+
+    .filter-list-item:hover {
+        cursor: pointer;
+    }
 }

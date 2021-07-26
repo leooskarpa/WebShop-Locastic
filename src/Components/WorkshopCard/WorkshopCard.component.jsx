@@ -33,7 +33,7 @@ const WorkshopCard = ({ workshop }) => {
         <div className="workshopcard-container">
             <div className="workshopcard-img-container">
                 <img className="workshopcard-img" src={workshop.imageUrl} alt="Workshop" />
-                {getCategory(workshop.category)}
+                {/* {getCategory(workshop.category)} */}
             </div>
             <div className="workshopcard-desc-container">
                 <div className="workshopcard-date-and-time">
