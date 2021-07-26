@@ -1,4 +1,3 @@
-import './App.css';
 import Header from './Components/Header/Header.component';
 import Footer from './Components/Footer/Footer.component';
 import Home from './Components/Home/Home.component';
@@ -26,15 +25,17 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path='/workshop/:id'>
-            <WorkshopDetailPage />
-          </Route>
-        </Switch>
+        <div className="main-container">
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path='/workshop/:id'>
+              <WorkshopDetailPage />
+            </Route>
+          </Switch>
+        </div>
         <Footer />
       </Router>
     </div>

@@ -9,7 +9,7 @@ const Header = () => {
                 <img className="logo" src={logo_pic} alt="Logo" />
             </div>
             <div className="cart-container">
-                <img src={cart_pic} alt="Cart" />
+                <img className="cart-img" src={cart_pic} alt="Cart" />
                 <span>Cart</span>
             </div>
         </div>
