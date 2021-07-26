@@ -8,13 +8,28 @@
     src: url('./Fonts/Livvic/Livvic-Bold.ttf');
 }
 
-*,
-::after,
-::before {
+:root {
+    --my-blue: #0097CC;
+    --my-yellow: #FFCE25;
+}
+
+* {
     margin: 0%;
     padding: 0%;
-    font-family: 'LivvicRegular';
     box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'LivvicRegular', monospace;
+    font-size: 20px;
+    height: 100%;
+}
+
+.main-container {
+    min-height: 95vh;
+    /* will cover the 100% of viewport */
+    display: block;
 }
 
 
@@ -27,11 +42,15 @@
     height: 10vh;
     min-height: 60px;
     max-height: 100px;
-    background-color: #FFCE25;
+    background-color: var(--my-yellow);
     padding: 5px 5vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logo-container {
+    width: fit-content;
 }
 
 .logo:hover {
@@ -39,8 +58,8 @@
 }
 
 .cart-container {
-    display: flex;
     align-items: center;
+    width: fit-content;
 }
 
 .cart-container:hover {
@@ -58,12 +77,14 @@
     background-color: rgba(127, 127, 127, 0.1);
     color: #7F7F7F;
 
-    height: 5vh;
+    height: 50px;
     font-size: 15px;
 
     display: flex;
     align-items: center;
     padding-left: 6vw;
+
+    bottom: 0%;
 }
 
 
@@ -98,12 +119,12 @@
 .dropdown-title {
     font-family: "LivvicBold";
     font-size: 20px;
-    color: #0097CC;
+    color: var(--my-blue);
     margin-left: 10px;
 }
 
 .menu {
-    background: #ffffff;
+    background: white;
     padding: 5px 15px;
     margin-top: 15px;
 
@@ -161,4 +182,95 @@
     font-size: 14px;
 }
 
-.workshopslist-container {}
+
+
+/* Workshopcard css */
+.workshopcard-container {
+    max-height: 200px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(127, 127, 127, 0.3);
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 30px;
+}
+
+.workshopcard-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.workshopcard-category-icon {
+    z-index: 2;
+    position: absolute;
+
+}
+
+.workshopcard-desc-container {
+    padding: 10px 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    max-height: inherit;
+}
+
+.workshopcard-date-and-time {
+    font-size: 0.9rem;
+    font-family: 'LivvicBold', monospace;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.workshopcard-date {
+    display: flex;
+    align-items: center;
+}
+
+.workshopcard-date>img {
+    margin-right: 5px;
+    width: 1rem;
+}
+
+.workshopcard-time {
+    display: flex;
+    align-items: center;
+}
+
+.workshopcard-time>img {
+    margin-right: 5px;
+    width: 1rem;
+}
+
+.workshopcard-title {
+    font-family: 'LivvicBold';
+    color: var(--my-blue);
+    font-size: 1.1rem;
+}
+
+.workshopcard-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.workshopcard-price-holder {
+    font-family: 'LivvicBold';
+    font-size: 1.3rem;
+}
+
+.workshopcard-eur {
+    font-size: 0.9rem;
+}
+
+.workshopcard-cart-btn {
+    background-color: var(--my-yellow);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
