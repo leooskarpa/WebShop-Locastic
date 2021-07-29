@@ -37,7 +37,6 @@ body {
 /* Header css */
 .header-container {
     position: sticky;
-    overflow: hidden;
     top: 0%;
     height: 10vh;
     min-height: 60px;
@@ -68,6 +67,177 @@ body {
 
 .cart-container>span {
     display: none;
+}
+
+
+
+/* Sidebar css */
+.cart-sidebar-container-passive {
+    background-color: white;
+    width: 400px;
+    height: auto;
+    position: fixed;
+    top: 0%;
+    right: -400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.cart-sidebar-container-active {
+    background-color: white;
+    width: 400px;
+    height: 100vh;
+    position: fixed;
+    top: 0%;
+    right: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
+.cart-sidebar-title-container {
+    display: flex;
+    margin: 30px 30px;
+    justify-content: space-between;
+}
+
+.cart-sidebar-title {
+    font-family: 'LivvicBold', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-sidebar-title-img {
+    margin-right: 10px;
+}
+
+.cart-sidebar-exit {
+    cursor: pointer;
+}
+
+.order-card-container {
+    background-color: rgba(242, 242, 242, 1);
+    height: 150px;
+    margin: 10px 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.order-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.order-card-desc-container {
+    display: grid;
+    height: fit-content;
+    grid-template-rows: 1fr 1fr;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.order-card-title-container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.order-card-title {
+    color: var(--my-blue);
+    font-family: 'LivvicBold', monospace;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.order-card-remove-btn {
+    display: flex;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.order-card-remove-img {
+    cursor: pointer;
+}
+
+.order-card-bottom-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.order-card-bottom-counter-container {
+    background-color: violet;
+}
+
+.order-card-bottom-dropdown-btn {
+    width: 60px;
+    height: 45px;
+    background-color: white;
+    border: 1px solid var(--my-blue);
+    border-radius: 6px;
+
+}
+
+.order-cart-bottom-price-container {
+    display: flex;
+    align-items: baseline;
+}
+
+.order-card-bottom-price {
+    font-family: 'LivvicBold', monospace;
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+.order-card-eur {
+    font-size: 0.8em;
+}
+
+.cart-sidebar-subtotal-container {
+    margin-left: 20px;
+    margin-top: 40px;
+    font-family: 'LivvicBold', monospace;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar-subtotal-text {
+    font-size: 0.7em;
+    color: rgba(127, 127, 127, 1);
+}
+
+.cart-sidebar-subtotal {
+    font-size: 1.4em;
+    margin-right: 5px;
+}
+
+.cart-sidebar-checkout-btn-container {
+    background-color: var(--my-blue);
+    margin: 50px 20px 0px 20px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: white;
+    font-family: 'LivvicBold';
+    cursor: pointer;
 }
 
 
@@ -186,6 +356,11 @@ body {
     font-size: 14px;
 }
 
+.workshopslist-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+}
 
 
 /* Workshopcard css */
@@ -198,14 +373,12 @@ body {
 
     display: grid;
     grid-template-columns: 1fr 2fr;
-    margin-bottom: 30px;
 }
 
 .workshopcard-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
     cursor: pointer;
 }
 
@@ -255,6 +428,8 @@ body {
     color: var(--my-blue);
     font-size: 1.1rem;
     cursor: pointer;
+    height: fit-content;
+    width: fit-content;
 }
 
 .workshopcard-bottom {
@@ -282,6 +457,18 @@ body {
 
 
 @media screen and (min-width: 1024px) {
+
+    /* Header css */
+    .cart-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .cart-container>span {
+        display: inline-block;
+        margin-left: 20px;
+    }
+
     .home-container {
         display: grid;
         grid-template-columns: 1fr 3fr;
@@ -300,6 +487,7 @@ body {
     .filter-list-container {
         margin-top: 40px;
         margin-left: 40px;
+        position: fixed;
     }
 
     .filter-list-title {
@@ -313,7 +501,7 @@ body {
         font-size: 20px;
         font-family: 'LivvicBold', monospace;
         margin-bottom: 10px;
-        display: flex;
+        width: fit-content;
     }
 
     .active-filter {
@@ -326,5 +514,24 @@ body {
 
     .filter-list-item:hover {
         cursor: pointer;
+    }
+
+
+
+    /* WorkshopCard css */
+    .workshopslist-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 30px;
+    }
+
+    .workshopcard-container {
+        max-height: 450px;
+
+        border-radius: 10px;
+        border: 1px solid rgba(127, 127, 127, 0.3);
+
+        grid-template-rows: 40% 60%;
+        grid-template-columns: 1fr;
     }
 }

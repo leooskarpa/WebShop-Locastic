@@ -5,9 +5,12 @@ import designIcon from '../../Images/brush.svg'
 import backendIcon from '../../Images/backend.svg'
 import frontendIcon from '../../Images/frontend.svg'
 import marketingIcon from '../../Images/marketing.svg'
+import { useDispatch } from 'react-redux'
+import { addOrder } from '../../app/store'
 
 
 const WorkshopCard = ({ workshop }) => {
+    const dispatch = useDispatch()
     const date_and_time = new Date(workshop.date)
 
     const date = `${date_and_time.getDate()}.${date_and_time.getMonth() + 1}.${date_and_time.getFullYear()}.`
@@ -27,6 +30,10 @@ const WorkshopCard = ({ workshop }) => {
             default:
                 return <img className="workshopcard-category-icon" src={designIcon} alt="All" />
         }
+    }
+
+    const addToCartClick = () => {
+        dispatch(addOrder(workshop))
     }
 
     return (
@@ -53,7 +60,7 @@ const WorkshopCard = ({ workshop }) => {
                     <div className="workshopcard-price-holder">
                         <span className="workshopcard-price">{workshop.price},00</span> <span className="workshopcard-eur">EUR</span>
                     </div>
-                    <div className="workshopcard-cart-btn">
+                    <div className="workshopcard-cart-btn" onClick={addToCartClick}>
                         <img className="workshopcard-cart-img" src={cartIcon} alt="Add to cart" />
                     </div>
                 </div>

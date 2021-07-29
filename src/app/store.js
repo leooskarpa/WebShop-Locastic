@@ -37,6 +37,13 @@ export const setFilterType = (filter) => {
     }
 }
 
+export const setSidebar = (active) => {
+    return {
+        type: 'setSidebar',
+        payload: active
+    }
+}
+
 
 // Reducers
 ////////////////////
@@ -44,9 +51,21 @@ export const setFilterType = (filter) => {
 const ordersReducer = (orders = [], action) => {
     switch (action.type) {
         case 'addOrder':
-            return [...orders, action.payload]
+            const newArrayAdd = [...orders];
+            const indexAdd = orders.findIndex(o => o.workshop === action.payload);
+
+            if (indexAdd !== -1) {
+                newArrayAdd[indexAdd].amount += 1;
+            } else {
+                newArrayAdd.push({
+                    workshop: action.payload,
+                    amount: 1
+                })
+            }
+
+            return newArrayAdd
         case 'removeOrder':
-            return [orders.filter(order => order !== action.payload)]
+            return orders.filter(o => o.workshop !== action.payload)
         case 'removeAllOrders':
             return []
         default:
@@ -67,6 +86,8 @@ const workshopsReducer = (workshops = [], action) => {
 
 const filterReducer = (filter = "All", action) => {
     switch (action.type) {
+        case "All":
+            return "All"
         case "Backend":
             return "Backend"
         case "Frontend":
@@ -76,7 +97,16 @@ const filterReducer = (filter = "All", action) => {
         case "Design":
             return "Design"
         default:
-            return "All"
+            return filter
+    }
+}
+
+const sidebarReducer = (sidebar = false, action) => {
+    switch (action.type) {
+        case 'setSidebar':
+            return action.payload
+        default:
+            return sidebar
     }
 }
 
@@ -87,5 +117,6 @@ const filterReducer = (filter = "All", action) => {
 export const store = createStore(combineReducers({
     orders: ordersReducer,
     workshops: workshopsReducer,
-    filter: filterReducer
+    filter: filterReducer,
+    sidebar: sidebarReducer
 }))

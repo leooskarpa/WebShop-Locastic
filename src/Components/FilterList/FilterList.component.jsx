@@ -20,6 +20,11 @@ const FilterList = () => {
 
     const clickHandler = (e) => {
 
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+
         switch (active) {
             case 'all':
                 setAll(false)
@@ -59,11 +64,8 @@ const FilterList = () => {
                 setActive('marketing')
         }
 
-
-
-        dispatch(setFilterType(e.target.title))
+        dispatch(setFilterType(e.target.title));
     }
-
 
     return (
         <div className="filter-list-container">
@@ -71,11 +73,11 @@ const FilterList = () => {
                 Filter by category:
             </div>
             <div className="filter-list-items-container">
-                <div className={`${all ? 'active-filter' : 'filter-list-item'}`}>
-                    <span onClick={clickHandler} title="All">All</span>
+                <div className={`${all ? 'active-filter' : 'filter-list-item'}`} onClick={clickHandler} title="All">
+                    All
                 </div>
-                <div className={`${design ? 'active-filter' : 'filter-list-item'}`}>
-                    <span onClick={clickHandler} title="Design">Design</span>
+                <div className={`${design ? 'active-filter' : 'filter-list-item'}`} onClick={clickHandler} title="Design">
+                    Design
                 </div>
                 <div className={`${frontend ? 'active-filter' : 'filter-list-item'}`} title='Frontend' onClick={clickHandler}>
                     Frontend

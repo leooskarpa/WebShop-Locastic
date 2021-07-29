@@ -2,6 +2,7 @@ import Header from './Components/Header/Header.component';
 import Footer from './Components/Footer/Footer.component';
 import Home from './Components/Home/Home.component';
 import WorkshopDetailPage from './Components/WorkshopDetailPage/WorkshopDetailPage.component';
+import MySidebar from './Components/MySidebar/MySidebar.component';
 
 import axios from 'axios'
 import { useEffect } from 'react'
@@ -36,6 +37,7 @@ const App = () => {
             </Route>
           </Switch>
         </div>
+        <MySidebar />
         <Footer />
       </Router>
     </div>
