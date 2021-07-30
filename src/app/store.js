@@ -44,6 +44,13 @@ export const setSidebar = (active) => {
     }
 }
 
+export const setAmount = ({ workshop, amount }) => {
+    return {
+        type: 'setAmount',
+        payload: { workshop, amount }
+    }
+}
+
 
 // Reducers
 ////////////////////
@@ -68,6 +75,15 @@ const ordersReducer = (orders = [], action) => {
             return orders.filter(o => o.workshop !== action.payload)
         case 'removeAllOrders':
             return []
+        case 'setAmount':
+            const newArrayAddAmount = orders.filter(w => w.workshop !== action.payload.workshop);
+
+            newArrayAddAmount.push({
+                workshop: action.payload.workshop,
+                amount: action.payload.amount
+            })
+
+            return newArrayAddAmount
         default:
             return orders
     }

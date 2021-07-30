@@ -74,18 +74,18 @@ body {
 /* Sidebar css */
 .cart-sidebar-container-passive {
     background-color: white;
-    width: 400px;
+    width: 100vw;
     height: auto;
     position: fixed;
     top: 0%;
-    right: -400px;
+    right: -100vw;
     overflow-x: hidden;
     overflow-y: scroll;
 }
 
 .cart-sidebar-container-active {
     background-color: white;
-    width: 400px;
+    width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0%;
@@ -124,13 +124,13 @@ body {
     display: grid;
     grid-template-columns: 1fr 2fr;
     border-radius: 10px;
-    overflow: hidden;
 }
 
 .order-card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 6px 0px 0px 6px;
 }
 
 .order-card-desc-container {
@@ -177,21 +177,51 @@ body {
 .order-card-bottom-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: flex-end;
+    align-items: center;
     height: 100%;
 }
 
-.order-card-bottom-counter-container {
-    background-color: violet;
+.order-card-dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.order-card-bottom-dropdown-btn {
-    width: 60px;
-    height: 45px;
+.order-card-dropdown-btn {
     background-color: white;
+
+    height: 45px;
+    width: 60px;
+    padding: 11px 13px 11px 13px;
+
+    color: black;
     border: 1px solid var(--my-blue);
     border-radius: 6px;
+    cursor: pointer;
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.order-card-dropdown-items-list {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+
+    background: white;
+    padding: 5px 15px;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-card-dropdown-item {
+    color: black;
+    padding: 0px 10px;
+    margin-top: 5px;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
 }
 
 .order-cart-bottom-price-container {
@@ -533,5 +563,17 @@ body {
 
         grid-template-rows: 40% 60%;
         grid-template-columns: 1fr;
+    }
+
+
+
+
+    /* Sidebar css */
+    .cart-sidebar-container-active {
+        width: 400px;
+    }
+
+    .cart-sidebar-container-passive {
+        width: 400px;
     }
 }
