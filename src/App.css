@@ -17,13 +17,21 @@
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    font-family: 'LivvicRegular', monospace;
 }
 
 html,
 body {
-    font-family: 'LivvicRegular', monospace;
     font-size: 20px;
     height: 100%;
+}
+
+.app-activee {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
 }
 
 .main-container {
@@ -627,6 +635,261 @@ body {
 
 
 
+/* Checkout css */
+.checkout-background-handler-active {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    z-index: 200;
+}
+
+.checkout-background-handler-passive {
+    display: none;
+}
+
+.checkout-container-active {
+    position: fixed;
+    overflow-y: scroll;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 100;
+
+    padding: 40px;
+    border-radius: 50px 50px 0px 0px;
+}
+
+.checkout-container-passive {
+    display: none;
+}
+
+.checkout-title-back-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.checkout-title {
+    font-family: 'LivvicBold', monospace;
+    font-size: 1.7rem;
+}
+
+.checkout-desc-container {
+    color: rgba(127, 127, 127, 1);
+    width: 80%;
+    margin-bottom: 40px;
+}
+
+.checkout-form-text-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 35px;
+}
+
+.checkout-form-label-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkout-form-label {
+    font-family: 'LivvicBold', monospace;
+    font-size: 0.8rem;
+}
+
+.checkout-form-label-err {
+    font-family: 'LivvicBold', monospace;
+    font-size: 0.8rem;
+    color: rgba(255, 57, 46, 1);
+}
+
+.checkout-form-text-input {
+    border: none;
+    padding: 15px 0px;
+    border-bottom: 2px solid #7F7F7F;
+
+    transition: 0.07s ease-out;
+}
+
+.checkout-form-text-input:focus {
+    outline: none;
+    background-color: rgba(242, 242, 242, 1);
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--my-blue);
+
+    transition: 0.07s ease-in;
+}
+
+.checkout-form-date-and-gender-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-form-date {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 35px;
+}
+
+.checkout-form-date-input {
+    border: none;
+    padding: 15px 0px;
+    border-bottom: 2px solid #7F7F7F;
+
+    transition: 0.07s ease-out;
+}
+
+.checkout-form-date-input:focus {
+    outline: none;
+    background-color: rgba(242, 242, 242, 1);
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--my-blue);
+
+    transition: 0.07s ease-in;
+}
+
+.checkout-form-gender {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 35px;
+}
+
+.checkout-form-select {
+    border: none;
+    padding: 15px 0px;
+    border-bottom: 2px solid #7F7F7F;
+
+    transition: 0.07s ease-out;
+}
+
+.checkout-form-select:focus {
+    outline: none;
+    background-color: rgba(242, 242, 242, 1);
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--my-blue);
+
+    transition: 0.07s ease-in;
+}
+
+.checkbox {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-gap: 0.5em;
+    font-size: 1rem;
+    margin-bottom: 35px;
+    width: fit-content;
+}
+
+.checkbox-input>input {
+    opacity: 0;
+    width: 1em;
+    height: 1em;
+}
+
+.checkbox-control {
+    display: inline-grid;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 0.25em;
+    border: 0.1em solid var(--my-blue);
+}
+
+.checkbox-input {
+    align-items: center;
+    display: grid;
+    grid-template-areas: "checkbox";
+}
+
+.checkbox-input>* {
+    grid-area: checkbox;
+}
+
+.checkbox-control>svg {
+    transition: transform 0.1s ease-in 25ms;
+    transform: scale(0);
+    transform-origin: bottom left;
+    color: white;
+}
+
+.checkbox-input>input:checked+.checkbox-control>svg {
+    transform: scale(1);
+    background-color: var(--my-blue);
+}
+
+.checkbox-input>input:hover+.checkbox-control {
+    box-shadow: 0px 0px 10px rgba(127, 127, 127, 0.3);
+}
+
+.checkout-form-submit-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout-form-submit-btn {
+    background-color: var(--my-yellow);
+    font-family: 'LivvicBold', monospace;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    height: 4rem;
+    font-size: 1.3rem;
+}
+
+.checkout-exit-holder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 0px;
+}
+
+.checkout-exit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout-exit-title {
+    font-family: 'LivvicBold', monospace;
+    font-size: 1.7rem;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.checkout-exit-desc {
+    color: rgba(127, 127, 127, 1);
+    margin-bottom: 40px;
+}
+
+.checkout-exit-btn-container {
+    background-color: var(--my-yellow);
+    font-family: 'LivvicBold', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0%;
+
+    border-radius: 6px;
+    width: 100%;
+    max-width: 400px;
+    height: 4rem;
+    font-size: 1.3rem;
+
+    cursor: pointer;
+}
+
+
+
 
 @media screen and (min-width: 1024px) {
 
@@ -828,5 +1091,13 @@ body {
     }
 
 
+
+    /* Checkout css */
+    .checkout-container-active {
+        width: 50%;
+        padding: 4rem 5rem;
+        top: 5%;
+        left: 25%;
+    }
 
 }

@@ -3,17 +3,18 @@ import Footer from './Components/Footer/Footer.component';
 import Home from './Components/Home/Home.component';
 import WorkshopDetailPage from './Components/WorkshopDetailPage/WorkshopDetailPage.component';
 import MySidebar from './Components/MySidebar/MySidebar.component';
+import Checkout from './Components/Checkout/Checkout.component'
 
 import axios from 'axios'
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { loadWorkshops, loadUsers } from './app/store';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 const App = () => {
-
   const dispatch = useDispatch()
+  const checkoutOpen = useSelector(state => state.checkout)
 
   useEffect(() => {
     axios.get('http://localhost:3000/workshops')
@@ -25,13 +26,12 @@ const App = () => {
       .catch(err => console.log(err))
   }, [dispatch])
 
-
-
   return (
-    <div className="App">
+    <div className={`app-${checkoutOpen ? 'active' : ''}`}>
       <Router>
         <div className="main-container">
           <Header />
+
           <Switch>
             <Route exact path="/">
               <Home />
@@ -41,7 +41,9 @@ const App = () => {
             </Route>
           </Switch>
         </div>
+
         <MySidebar />
+        <Checkout />
         <Footer />
       </Router>
     </div>

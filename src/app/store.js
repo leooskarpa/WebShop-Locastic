@@ -51,6 +51,13 @@ export const setSidebar = (active) => {
     }
 }
 
+export const setCheckout = (active) => {
+    return {
+        type: 'setCheckout',
+        payload: active
+    }
+}
+
 export const setAmount = ({ workshop, amount }) => {
     return {
         type: 'setAmount',
@@ -142,6 +149,15 @@ const sidebarReducer = (sidebar = false, action) => {
     }
 }
 
+const checkoutReducer = (checkout = false, action) => {
+    switch (action.type) {
+        case 'setCheckout':
+            return action.payload
+        default:
+            return checkout
+    }
+}
+
 
 // Create store
 ////////////////////
@@ -151,5 +167,6 @@ export const store = createStore(combineReducers({
     workshops: workshopsReducer,
     filter: filterReducer,
     sidebar: sidebarReducer,
+    checkout: checkoutReducer,
     users: usersReducer
 }))

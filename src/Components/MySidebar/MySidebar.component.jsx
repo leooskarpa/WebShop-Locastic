@@ -1,17 +1,18 @@
 import cart_pic from '../../Images/cart.svg'
 import exitIcon from '../../Images/exit_btn.svg'
-import removeIcon from '../../Images/trash.svg'
-import dropdownIcon from '../../Images/dropdown_arrow.svg'
 import { useSelector, useDispatch } from 'react-redux'
-import { setSidebar, removeOrder } from '../../app/store'
+import { setSidebar, setCheckout } from '../../app/store'
 import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import OrderCard from './OrderCard/OrderCard.component'
+import Checkout from '../Checkout/Checkout.component'
+
 
 
 const MySidebar = () => {
     const cart = useSelector(state => state.orders)
     const sidebarActive = useSelector(state => state.sidebar)
+    const checkoutActive = useSelector(state => state.checkout)
     const dispatch = useDispatch()
 
 
@@ -23,6 +24,12 @@ const MySidebar = () => {
         }
         return subtotal
     }
+
+    const checkoutHandler = () => {
+        dispatch(setCheckout(true))
+        dispatch(setSidebar(!sidebarActive))
+    }
+
 
     return (
         <div className={`cart-sidebar-container-${sidebarActive ? 'active' : 'passive'}`}>
@@ -47,7 +54,7 @@ const MySidebar = () => {
                     <span className="cart-sidebar-subtotal">{getSubtotal()},00</span><span className="order-card-eur">EUR</span>
                 </div>
             </div>
-            <div className="cart-sidebar-checkout-btn-container">
+            <div className="cart-sidebar-checkout-btn-container" onClick={checkoutHandler}>
                 Checkout
             </div>
         </div>
