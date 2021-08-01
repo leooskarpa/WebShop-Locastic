@@ -24,8 +24,6 @@ const MySidebar = () => {
         return subtotal
     }
 
-    console.log(cart)
-
     return (
         <div className={`cart-sidebar-container-${sidebarActive ? 'active' : 'passive'}`}>
             <div className="cart-sidebar-title-container">

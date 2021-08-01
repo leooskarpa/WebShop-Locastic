@@ -31,6 +31,13 @@ export const loadWorkshops = (workshops) => {
     }
 }
 
+export const loadUsers = (users) => {
+    return {
+        type: 'loadUsers',
+        payload: users
+    }
+}
+
 export const setFilterType = (filter) => {
     return {
         type: filter
@@ -99,6 +106,15 @@ const workshopsReducer = (workshops = [], action) => {
     }
 }
 
+const usersReducer = (users = [], action) => {
+    switch (action.type) {
+        case 'loadUsers':
+            return action.payload
+        default:
+            return users
+    }
+}
+
 
 const filterReducer = (filter = "All", action) => {
     switch (action.type) {
@@ -134,5 +150,6 @@ export const store = createStore(combineReducers({
     orders: ordersReducer,
     workshops: workshopsReducer,
     filter: filterReducer,
-    sidebar: sidebarReducer
+    sidebar: sidebarReducer,
+    users: usersReducer
 }))

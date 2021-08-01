@@ -37,6 +37,7 @@ body {
 /* Header css */
 .header-container {
     position: sticky;
+    z-index: 2;
     top: 0%;
     height: 10vh;
     min-height: 60px;
@@ -81,6 +82,7 @@ body {
     right: -100vw;
     overflow-x: hidden;
     overflow-y: scroll;
+    z-index: 3;
 }
 
 .cart-sidebar-container-active {
@@ -92,6 +94,7 @@ body {
     right: 0px;
     overflow-x: hidden;
     overflow-y: scroll;
+    z-index: 3;
 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
@@ -389,20 +392,21 @@ body {
 .workshopslist-container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 30px;
 }
 
 
 /* Workshopcard css */
 .workshopcard-container {
     max-height: 200px;
+    background-color: white;
 
     border-radius: 10px;
     border: 1px solid rgba(127, 127, 127, 0.3);
     overflow: hidden;
 
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 33% 67%;
+    margin-top: 30px;
 }
 
 .workshopcard-img {
@@ -412,13 +416,10 @@ body {
     cursor: pointer;
 }
 
-.workshopcard-category-icon {
-    z-index: 2;
-    position: absolute;
-}
-
 .workshopcard-desc-container {
     padding: 10px 20px;
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     max-height: inherit;
@@ -462,6 +463,11 @@ body {
     width: fit-content;
 }
 
+.workshopcard-title:hover {
+    text-decoration: none;
+    color: var(--my-blue);
+}
+
 .workshopcard-bottom {
     display: flex;
     justify-content: space-between;
@@ -484,6 +490,142 @@ body {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
+
+
+
+/* WorkshopDetailPage css */
+.workshopdetailpage-container {
+    padding: 20px;
+}
+
+.workshopdetailpage-back-btn-container {
+    margin-top: 5px;
+    margin-bottom: 30px;
+    font-family: 'LivvicBold', monospace;
+}
+
+.workshopdetailpage-back-text {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.workshopdetailpage-back-text:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.workshopdetailpage-back-img {
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.workshopdetailpage-description-container {
+    width: 100%;
+}
+
+.workshopdetailpage-image-container {
+    width: 100%;
+}
+
+.workshopdetailpage-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.workshopdetailpage-date-and-time-container {
+    font-size: 0.9rem;
+    font-family: 'LivvicBold', monospace;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.workshopcard-date {
+    margin-right: 30px;
+}
+
+.workshopdetailpage-title {
+    color: var(--my-blue);
+    font-family: 'LivvicBold', monospace;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.workshopdetailpage-author-with {
+    margin-left: 20px;
+    margin-top: 10px;
+    color: black;
+    font-size: 14px;
+}
+
+.workshopdetailpage-author {
+    font-size: 19px;
+    margin-left: 5px;
+}
+
+.workshopdetailpage-description {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 30px;
+}
+
+.workshopdetailpage-similar-workshops-container {
+    background-color: rgba(242, 242, 242, 1);
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.workshopdetailpage-similar-workshops-title {
+    font-family: 'LivvicBold', monospace;
+    font-size: 32px;
+}
+
+.workshopdetailpage-buy-ticket-container {
+    background-color: white;
+    bottom: 0px;
+    position: sticky;
+    padding: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    box-shadow: 0px 0px 10px rgba(127, 127, 127, 0.3);
+}
+
+.bigger-buy-ticket-container {
+    display: none;
+}
+
+.workshopdetailpage-buy-ticket-btn {
+    width: 140px;
+    height: 45px;
+    background-color: var(--my-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 2px 4px 8px rgba(13, 13, 13, 0.15);
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
 
 
 @media screen and (min-width: 1024px) {
@@ -570,10 +712,121 @@ body {
 
     /* Sidebar css */
     .cart-sidebar-container-active {
-        width: 400px;
+        width: 25vw;
     }
 
     .cart-sidebar-container-passive {
-        width: 400px;
+        width: 25vw;
     }
+
+
+
+    /* WorkshopDetailPage */
+    .workshopdetailpage-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    .workshopdetailpage-back-btn-container {
+        width: fit-content;
+    }
+
+    .workshopdetailpage-image-container {
+        max-height: 40vh;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .workshopdetailpage-description-container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .workshopdetailpage-back-img {
+        object-fit: scale-down;
+        height: 100%;
+        width: 100%;
+    }
+
+    .workshopdetailpage-info-container {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 100px;
+        margin-right: 20px;
+    }
+
+    .workshopdetailpage-date-and-time-container {
+        margin-top: 0px;
+    }
+
+    .workshopdetailpage-title {
+        font-size: 60px;
+    }
+
+    .workshopdetailpage-author-with {
+        font-size: 18px;
+    }
+
+    .workshopdetailpage-author {
+        font-size: 27px;
+    }
+
+    .workshopdetailpage-description {
+        font-size: 18px;
+    }
+
+    .workshopdetailpage-buy-ticket-container {
+        display: none;
+    }
+
+    .bigger-buy-ticket-container {
+        width: 360px;
+        height: 320px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        padding: 40px;
+        border-radius: 6px;
+        box-shadow: 0px 0px 10px rgba(127, 127, 127, 0.3);
+    }
+
+    .workshopdetailpage-buy-ticket-title {
+        font-size: 23px;
+        font-family: 'LivvicBold', monospace;
+    }
+
+    .workshopdetailpage-price {
+        font-size: 40px;
+    }
+
+    .workshopdetailpage-eur {
+        font-size: 23px;
+    }
+
+    .workshopdetailpage-buy-ticket-bottom-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .workshopdetailpage-similar-workshops-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .workshopdetailpage-similar-workshops {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 30px;
+    }
+
+
+
 }

@@ -1,46 +1,38 @@
 import cartIcon from '../../Images/cart.svg'
 import dateIcon from '../../Images/date.svg'
 import timeIcon from '../../Images/clock.svg'
-import designIcon from '../../Images/brush.svg'
-import backendIcon from '../../Images/backend.svg'
-import frontendIcon from '../../Images/frontend.svg'
-import marketingIcon from '../../Images/marketing.svg'
 import { useDispatch } from 'react-redux'
 import { addOrder } from '../../app/store'
+import { useHistory } from 'react-router-dom'
 
 
 const WorkshopCard = ({ workshop }) => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const date_and_time = new Date(workshop.date)
 
     const date = `${date_and_time.getDate()}.${date_and_time.getMonth() + 1}.${date_and_time.getFullYear()}.`
     const time = `${date_and_time.getHours()}:${date_and_time.getMinutes()}`
 
 
-    const getCategory = (category) => {
-        switch (category) {
-            case 'design':
-                return <img className="workshopcard-category-icon" src={designIcon} alt="Design" />
-            case 'frontend':
-                return <img className="workshopcard-category-icon" src={frontendIcon} alt="Frontend" />
-            case 'backend':
-                return <img className="workshopcard-category-icon" src={backendIcon} alt="Backend" />
-            case 'marketing':
-                return <img className="workshopcard-category-icon" src={marketingIcon} alt="Marketing" />
-            default:
-                return <img className="workshopcard-category-icon" src={designIcon} alt="All" />
-        }
-    }
-
     const addToCartClick = () => {
         dispatch(addOrder(workshop))
+    }
+
+    const handleClick = () => {
+        history.push(`/workshop/${workshop.id}`)
+
+        window.scrollTo({
+            top: 0
+        })
     }
 
     return (
         <div className="workshopcard-container">
             <div className="workshopcard-img-container">
-                <img className="workshopcard-img" src={workshop.imageUrl} alt="Workshop" />
-                {/* {getCategory(workshop.category)} */}
+                {/* <Link to={`/workshop/${workshop.id}`}> */}
+                <img className="workshopcard-img" src={workshop.imageUrl} alt="Workshop" onClick={handleClick} />
+                {/* </Link> */}
             </div>
             <div className="workshopcard-desc-container">
                 <div className="workshopcard-date-and-time">
@@ -53,7 +45,7 @@ const WorkshopCard = ({ workshop }) => {
                         {time}
                     </div>
                 </div>
-                <div className="workshopcard-title">
+                <div className="workshopcard-title" onClick={handleClick}>
                     {workshop.title}
                 </div>
                 <div className="workshopcard-bottom">

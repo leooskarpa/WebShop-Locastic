@@ -7,7 +7,7 @@ import MySidebar from './Components/MySidebar/MySidebar.component';
 import axios from 'axios'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { loadWorkshops } from './app/store';
+import { loadWorkshops, loadUsers } from './app/store';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
@@ -18,6 +18,10 @@ const App = () => {
   useEffect(() => {
     axios.get('http://localhost:3000/workshops')
       .then(res => dispatch(loadWorkshops(res.data)))
+      .catch(err => console.log(err))
+
+    axios.get('http://localhost:3000/users')
+      .then(res => dispatch(loadUsers(res.data)))
       .catch(err => console.log(err))
   }, [dispatch])
 

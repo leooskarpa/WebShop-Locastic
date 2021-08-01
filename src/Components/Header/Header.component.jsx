@@ -2,6 +2,7 @@ import logo_pic from '../../Images/logo.svg'
 import cart_pic from '../../Images/cart.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSidebar } from '../../app/store'
+import { Link } from 'react-router-dom'
 
 
 const Header = () => {
@@ -22,7 +23,9 @@ const Header = () => {
     return (
         <div className="header-container">
             <div className="logo-container">
-                <img className="logo" src={logo_pic} alt="Logo" />
+                <Link to='/'>
+                    <img className="logo" src={logo_pic} alt="Logo" />
+                </Link>
             </div>
             <div className="cart-container" onClick={() => dispatch(setSidebar(!sidebarActive))}>
                 <img className="cart-img" src={cart_pic} alt="Cart" />
