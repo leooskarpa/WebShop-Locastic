@@ -1,4 +1,7 @@
-import { createStore, combineReducers } from 'redux'
+import {
+    createStore,
+    combineReducers
+} from 'redux'
 
 
 // Actions
@@ -58,10 +61,16 @@ export const setCheckout = (active) => {
     }
 }
 
-export const setAmount = ({ workshop, amount }) => {
+export const setAmount = ({
+    workshop,
+    amount
+}) => {
     return {
         type: 'setAmount',
-        payload: { workshop, amount }
+        payload: {
+            workshop,
+            amount
+        }
     }
 }
 

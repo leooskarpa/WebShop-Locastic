@@ -27,7 +27,7 @@ const App = () => {
   }, [dispatch])
 
   return (
-    <div className={`app-${checkoutOpen ? 'active' : ''}`}>
+    <div className="App">
       <Router>
         <div className="main-container">
           <Header />

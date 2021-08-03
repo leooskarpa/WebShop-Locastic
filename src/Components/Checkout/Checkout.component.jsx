@@ -172,7 +172,7 @@ const Checkout = () => {
     }
 
     return (
-        <div className={`checkout-background-handler${checkoutActive ? 'active' : 'passive'}`}>
+        <div className={`checkout-background-handler-${checkoutActive ? 'active' : 'passive'}`}>
             {!success ?
                 <div className={`checkout-container-${checkoutActive ? 'active' : 'passive'}`}>
                     <div className="checkout-title-back-btn-container">
